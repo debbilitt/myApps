@@ -23,6 +23,7 @@ class ofApp : public ofBaseApp{
 		
     
     ofShader mShader;
+    ofShader newShader;
 
     ofPlanePrimitive plane;
 
