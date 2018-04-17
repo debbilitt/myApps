@@ -19,10 +19,8 @@ void main()
     
     // distance between the mouse position and vertex position.
 	float dist =  cos((dir.x + dir.x) / (dir.y + dir.y)); //weird X mirror pattern
-//    float dist =  sin((dir.x + dir.x) / (dir.y + dir.y)); //weird X mirror pattern
-//     float dist =  sin((dir.x + dir.x) / (dir.y + dir.y)); //weird X mirror pattern
-    
-//    float dist = abs(cos(dir.x*12.)*sin(dir.y*3.))*.8+.1;
+//  float dist =  sin((dir.x + dir.x) / (dir.y + dir.y)); //weird X mirror pattern
+//  float dist =  sin((dir.x + dir.x) / (dir.y + dir.y)); //weird X mirror pattern
     
     // check vertex is within mouse range.
 	if(dist > 0.0 && dist < mouseRange) {

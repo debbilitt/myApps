@@ -101,37 +101,29 @@ void ofApp::draw() {
     
         debShader.begin();
     
+        // assign the value for range of repulsion
+        debShader.setUniform1f("mouseRange", 10);
     
         float mx = (cos(ofGetElapsedTimef()*10.0))+ofGetWidth()/2;
         float my = (cos(ofGetElapsedTimef()*3.0))+ofGetHeight()/2;
     
-        // we can pass in a single value into the shader by using the setUniform1 function.
-            // if you want to pass in a float value, use setUniform1f.
-        // if you want to pass in a integer value, use setUniform1i.
-        debShader.setUniform1f("mouseRange", 20);
-    
-        // we can pass in two values into the shader at the same time by using the setUniform2 function.
-        // inside the shader these two values are set inside a vec2 object.
+        //pointPos connected to mx my
         debShader.setUniform2f("mousePos", mx, my);
     
         float percentX = mouseX / (float)ofGetWidth();
         percentX = ofClamp(percentX, 0, 1);
     
     
+        //creating colors mapped to mouse
         ofFloatColor colorOne = ofColor(25,255,251);
         ofFloatColor colorTwo = ofColor(155,25,255);
         ofFloatColor colorNew = colorOne.getLerped(colorTwo, percentX);
     
-    
-        // create a float array with the color values.
         float mouseColor[4] = {colorNew.r, colorNew.g, colorNew.b, colorNew.a};
     
-        // we can pass in four values into the shader at the same time as a float array.
-        // we do this by passing a pointer reference to the first element in the array.
-        // inside the shader these four values are set inside a vec4 object.
         debShader.setUniform4fv("mouseColor", &mouseColor[0]);
     
-    
+        
     for(int i = 0; i<100; i++){
         for( int k = 0; k <100; k++){
             ofDrawEllipse(i*20, k*20, 2, 2);
